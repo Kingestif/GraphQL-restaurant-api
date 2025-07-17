@@ -1,12 +1,12 @@
 import { Role } from "@prisma/client";
-import { UserRepositoryPrisma } from "./repository/userRepository"
-import { UserService } from "./services/user/userService";
-import { idValidation, roleValidation } from "./validation/userValidation";
+import { UserRepositoryPrisma } from "../../repository/userRepository";
+import { UserService } from "../../services/user/userService";
+import { idValidation, roleValidation } from "../../validation/userValidation";
 
 const userRepository = new UserRepositoryPrisma();
 const userService = new UserService(userRepository);
 
-export const resolvers = {
+export const userResolvers = {
     Query: {
         viewAllUsers: async() => {
             return userService.viewAllUsers();
