@@ -5,17 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "tsx server.ts",
+    "start": "tsx apolloServer.ts",
     "dev": "tsx watch server.ts"
   },
   "author": "estifanos",
   "license": "ISC",
   "dependencies": {
+    "@apollo/server": "^4.12.2",
     "@prisma/client": "^6.11.1",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "graphql": "^16.11.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.15.1",
     "morgan": "^1.10.0",
