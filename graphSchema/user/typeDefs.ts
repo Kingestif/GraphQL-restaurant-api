@@ -11,7 +11,24 @@ export const userTypeDefs = `#graphql
         updatedAt: String!
     }
 
+    input SignUpInput {
+        email: String,
+        password: String,
+        role: String
+    }
+
+    input LoginInput {
+        email: String,
+        password: String
+    }
+
     extend type Query {
+        """ Signup a user """
+        signUp(input: SignUpInput): User!
+
+        """ Login a user """
+        login(input: LoginInput): String!
+
         """ List of all users on our app """
         viewAllUsers: [User]!
 

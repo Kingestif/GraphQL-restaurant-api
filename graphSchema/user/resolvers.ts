@@ -2,12 +2,40 @@ import { Role } from "@prisma/client";
 import { UserRepositoryPrisma } from "../../repository/userRepository";
 import { UserService } from "../../services/user/userService";
 import { idValidation, roleValidation } from "../../validation/userValidation";
+import signupValidation from "../../validation/signupValidation";
+import { AuthenticationService } from "../../services/auth/authService";
+import { AuthRepositoryPrisma } from "../../repository/authRepository";
+import { BcryptHashRepository } from "../../repository/hashRepository";
+import { JwtTokenRepository } from "../../repository/tokenRepository";
+import { config } from '../../config/config';
+import signInValidation from "../../validation/signinValidation";
 
+const AuthDeps = () => {
+    return {
+        userRepository: new AuthRepositoryPrisma(),  
+        hashRepository: new BcryptHashRepository(),
+        tokenRepository: new JwtTokenRepository(
+            config.JWT_SECRET,      
+            Number(config.JWT_EXPIRE) 
+        )
+    }
+};
 const userRepository = new UserRepositoryPrisma();
 const userService = new UserService(userRepository);
+const authenticationService = new AuthenticationService(AuthDeps());
 
 export const userResolvers = {
     Query: {
+        signUp: async(parent: any, args: {input: {email: string, password: string, role: string}}) => {
+            const input = signupValidation.parse(args.input);
+            return await authenticationService.signUp(input); 
+        },
+
+        login: async(parent: any, args: {input: {email: string, password: string}}) => {
+            const input = signInValidation.parse(args.input);
+            return await authenticationService.signIn(input);
+        },
+
         viewAllUsers: async() => {
             return userService.viewAllUsers();
         },
