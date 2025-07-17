@@ -42,7 +42,6 @@ describe("authService", () => {
                 save: async (user: Usertype) => {
                     return {
                         email: user.email,
-                        password: user.password,
                         role: user.role
                     }
                 }
