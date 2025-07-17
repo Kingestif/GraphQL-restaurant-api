@@ -37,7 +37,8 @@ export class AuthenticationService {
 
         const savedUser = await this.userRepository.save(user);
 
-        return new UserDTO(savedUser);
+        // return new UserDTO(savedUser);
+        return savedUser;
     }
 
     async signIn({ email, password }: SignInValidationType) {
