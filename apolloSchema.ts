@@ -41,7 +41,6 @@ export const typeDefs = `#graphql
         # orderId: ID!
         productId: Int
         quantity: Int
-
     }
 
     type Booking {
@@ -77,7 +76,18 @@ export const typeDefs = `#graphql
     }
 
     type Query {
+        """ List of all users on our app """
         viewAllUsers: [User]!
+
+        """ Single user profile """
         viewUserProfile(id: String): User!
+    }
+
+    type Mutation {
+        """ Update users role """
+        updateUserRole(id: String, role: String!): User!
+
+        """ Delete a user """
+        deleteUser(id: String): User
     }
 `

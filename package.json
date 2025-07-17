@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "tsx apolloServer.ts",
+    "start": "tsx watch apolloServer.ts",
     "dev": "tsx watch server.ts"
   },
   "author": "estifanos",
