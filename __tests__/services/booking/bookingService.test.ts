@@ -21,7 +21,8 @@ describe('bookingService', ()=> {
         customer: {
             id: string,
             email: string,
-        }
+        },
+        customerId: string
     };
 
 
@@ -42,7 +43,8 @@ describe('bookingService', ()=> {
             customer: {
                 id: 'userID456',
                 email: 'user@example.com'
-            }
+            },
+            customerId: "321"
         };
 
         bookingRepository = {
