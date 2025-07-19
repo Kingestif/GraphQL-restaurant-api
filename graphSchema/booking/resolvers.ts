@@ -20,7 +20,7 @@ export const bookingResolvers = {
         },
 
         getAllBookings: async(parent: any, args: any, context: any) => {
-            requireAuth(context, ['manager']);
+            requireAuth(context, ['manager', 'admin']);
             return await bookingService.allBooking();
         }
     },
