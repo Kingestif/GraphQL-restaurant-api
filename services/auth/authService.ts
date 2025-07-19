@@ -1,4 +1,3 @@
-import { UserDTO } from "../../dto/userDTO";
 import { HashRepository } from "../../repository/hashRepository";
 import { TokenRepository } from "../../repository/tokenRepository";
 import { IAuthRepository } from "../../repository/authRepository";
@@ -53,24 +52,3 @@ export class AuthenticationService {
         return token;
     }
 }
-
-
-
-
-// OLD WAY without class#1   
-
-// export const signupService = async (deps: SignupDeps, { email, password, role }: UserValidationType) => {
-//     const { userRepository, UserEntity, hashRepository } = deps;
-
-//     const existingUser = await userRepository.findByEmail(email);
-
-//     if (existingUser) {
-//         throw new Error("User with this email already exists");
-//     }
-
-//     const hashedPassword = await hashRepository.hash(password, 12);
-//     const userEntity = new UserEntity(email, hashedPassword, role);
-//     const user = await userRepository.save(userEntity);
-
-//     return new UserDTO(user);       //instead of just saying return user, we return a DTO that does not include password field
-// }

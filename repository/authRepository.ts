@@ -4,7 +4,6 @@ import prisma from '../prisma';
 import { Usertype } from "../types/user";
 import { AppError } from '../utils/AppError';
 import { toUser } from '../mapper/toUserType';
-import { UserDTO } from '../dto/userDTO';
 
 // This interface describes what our repository must do, but not how. 
 // My business logic (service/use case) will depend on this interface.
@@ -59,6 +58,7 @@ export class AuthRepositoryPrisma implements IAuthRepository {
         if(!user) return null;
         
         return {
+            id: user.id.toString(),
             email: user.email,
             password: user.password,
             role: user.role as Role
