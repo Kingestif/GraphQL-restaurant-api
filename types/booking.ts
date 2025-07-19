@@ -3,8 +3,9 @@ export type BookingType = {
     date: Date;
     time: string;
     numberOfPeople: number;
-    customer?: {             //this part is only needed during populating our database
+    customer?: {             
         id: string,
         email: string
     }
+    customerId?: string,
 }

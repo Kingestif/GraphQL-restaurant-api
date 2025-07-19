@@ -10,6 +10,8 @@ export const toBookingType = (doc: any): BookingType => {
         customer: doc.customer? {             //this part is only needed during populating our database
             id: (doc.customer._id ?? doc.customer.id)?.toString(),
             email: doc.customer.email
-        }: undefined
+        }: undefined,
+
+        customerId: doc.customerId
     }
 }
