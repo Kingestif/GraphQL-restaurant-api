@@ -9,6 +9,7 @@ import { menuTypeDefs } from './menu/typeDefs';
 import { itemTypeDefs } from './orderItem/typeDefs';
 import { commonTypeDefs } from './common/typeDef';
 import { baseTypeDefs } from './baseTypeDefs';
+import { bookingResolvers } from './booking/resolvers';
 
 export const typeDefs = mergeTypeDefs([
     baseTypeDefs,
@@ -21,5 +22,6 @@ export const typeDefs = mergeTypeDefs([
 ]);
 
 export const resolvers = mergeResolvers([
-    userResolvers
+    userResolvers,
+    bookingResolvers
 ]);
