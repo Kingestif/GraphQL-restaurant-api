@@ -9,6 +9,7 @@ import { BcryptHashRepository } from "../../repository/hashRepository";
 import { JwtTokenRepository } from "../../repository/tokenRepository";
 import { config } from '../../config/config';
 import signInValidation from "../../validation/signinValidation";
+import { requireAuth } from "../../utils/checkRole";
 
 const AuthDeps = () => {
     return {
@@ -36,24 +37,28 @@ export const userResolvers = {
             return await authenticationService.signIn(input);
         },
 
-        viewAllUsers: async() => {
+        viewAllUsers: async(parent: any, args: any, context:any) => {
+            requireAuth(context, ['admin']);
             return userService.viewAllUsers();
         },
 
-        viewUserProfile: async(parent: any, args: {id: string}) => {
+        viewUserProfile: async(parent: any, args: {id: string}, context:any) => {
+            requireAuth(context, ['admin']);
             const ID = idValidation.parse(args.id);
             return userService.viewUserProfile(ID);
         }
     },
 
     Mutation: {
-        updateUserRole: async(parent: any, args: {id: string, role: Role}) => {
+        updateUserRole: async(parent: any, args: {id: string, role: Role}, context:any) => {
+            requireAuth(context, ['admin']);
             const id = idValidation.parse(args.id);
             const role = roleValidation.parse(args.role);
             return await userService.updateUserRole(id, role);
         },
 
-        deleteUser: async(parent: any, args: {id: string}) => {
+        deleteUser: async(parent: any, args: {id: string}, context:any) => {
+            requireAuth(context, ['admin']);
             const id = idValidation.parse(args.id);
             return await userService.deleteUser(id);
         }

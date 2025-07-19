@@ -33,14 +33,14 @@ export const userTypeDefs = `#graphql
         viewAllUsers: [User]!
 
         """ Single user profile """
-        viewUserProfile(id: String): User!
+        viewUserProfile(id: ID): User!
     }
 
     extend type Mutation {
         """ Update users role """
-        updateUserRole(id: String, role: String!): User!
+        updateUserRole(id: ID, role: String!): User!
 
         """ Delete a user """
-        deleteUser(id: String): User
+        deleteUser(id: ID): User
     }
 `
