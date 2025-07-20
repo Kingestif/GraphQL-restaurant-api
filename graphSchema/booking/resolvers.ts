@@ -3,7 +3,6 @@ import { UserRepositoryPrisma } from "../../repository/userRepository";
 import { BookingService } from "../../services/booking/bookingService";
 import { requireAuth } from "../../utils/checkRole";
 import bookingValidation from "../../validation/bookingValidation";
-import prisma from "../../prisma";
 import { AppError } from "../../utils/AppError";
 import { UserService } from "../../services/user/userService";
 
@@ -47,15 +46,7 @@ export const bookingResolvers = {
     Booking: {
         customer: async(parent: any, args: any, context: any) => {
             return await userService.viewUserProfile(parent.customerId);
-
-            //above litrally means like this 
-            // return await prisma.user.findFirst({
-            //     where: {
-            //         id: parent.customerId
-            //     }
-            // })
-
-            // since we are returning "customerId" from the bookings(booktalbe, view booking) we can use that customerId to fetch the whole user information
+            // since we are returning "customerId" from the PARENT i.e bookings(booktalbe, view booking) we can use that customerId to fetch the whole user information
         }
     }
 }
