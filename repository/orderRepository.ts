@@ -106,11 +106,6 @@ export class OrderRepositoryPrisma implements IOrderRepository {
     }
 
     async findAll(): Promise<FullPopulatedOrder[]> {
-        // const orders = await Order.find()
-        //     .populate('customer', 'email') 
-        //     .populate('items.product', 'name price') 
-        //     .sort({ createdAt: -1 });
-
         const orders = await prisma.order.findMany({
             include: {
                 items: {
