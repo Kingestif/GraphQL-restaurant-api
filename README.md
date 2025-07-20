@@ -1,99 +1,69 @@
-# 🍽️ Restaurant API
+# Restaurant API
 
-A RESTful API for managing a restaurant system — complete with authentication, menu management, order placement, and table bookings. Built with **Express.js** and documented using **Swagger**.
-
----
-
-## Live Demo
-
-- 🌐 API Base URL: [https://restaurant-api-27es.onrender.com](https://restaurant-api-27es.onrender.com)
-- 📘 Swagger Docs: [https://restaurant-api-27es.onrender.com/api-docs](https://restaurant-api-27es.onrender.com/api-docs)
+A modern, scalable Restaurant API built with **TypeScript**, **GraphQL**, and **Prisma** using a **Clean Architecture** approach.
 
 ---
 
-## Tech Stack
+## 🚀 Features
 
-- **Backend Framework**: Express.js
-- **Authentication**: JWT-based auth
-- **Database**: MongoDB + Mongoose
-- **Documentation**: Swagger (OpenAPI)
-- **Deployment**: Render
-
----
-
-## User Roles
-
-| Role           | Capabilities |
-|----------------|--------------|
-| **Customer**   | Browse menu, place orders, book tables, view own bookings |
-| **Hotel Manager** | Manage menu items, view all bookings |
-| **Admin**      | Manage all users, view system analytics |
+- **GraphQL API** for all operations (bookings, menus, orders, users, etc.)
+- **TypeScript** for type safety and maintainability
+- **Prisma ORM** for database access and migrations
+- **PostgreSQL** (or your preferred SQL database)
+- **Clean Architecture**: clear separation of concerns (Resolvers, Services, Repositories, Mappers, Validation)
+- **Zod** for robust input validation
+- **Role-based authentication** (admin, manager, customer)
+- **Custom error handling** with extensible error classes
+- **Environment configuration** via `.env` and config modules
 
 ---
 
-## Authentication & Authorization
+## 🛠️ Tech Stack
 
-- All routes are protected using JWT tokens.
-- Role-based access control is enforced for sensitive operations.
-- Use the `/auth/signup` and `/auth/login` routes to create and authenticate users.
-
----
-
-## API Features
-
-### Authentication
-
-- `POST /auth/signup` – Register a new user  
-- `POST /auth/login` – Log in and receive a JWT  
-- `PATCH /users/:id` – Update user role (Admin only)  
-- `DELETE /users/:id` – Delete a user (Admin only)
-
-### Menu Management (Hotel Manager)
-
-- `GET /menu` – List all menu items  
-- `POST /menu` – Add new menu item  
-- `PATCH /menu/:id` – Edit menu item  
-- `DELETE /menu/:id` – Remove menu item
-
-### Order Management (Customer)
-
-- `POST /orders` – Place a new order  
-- `GET /orders/me` – View your own orders  
-- `GET /orders` – View all orders (Manager/Admin)
-
-### Table Booking (Customer)
-
-- `POST /bookings` – Book a table  
-- `GET /bookings/me` – View your bookings  
-- `GET /bookings` – View all bookings (Manager/Admin)
+- **Language:** TypeScript
+- **API:** GraphQL (Apollo Server)
+- **Database:** PostgreSQL (via Prisma ORM)
+- **Validation:** Zod
+- **Authentication:** JWT-based, role-aware
+- **Architecture:** Clean Architecture (modular, testable, scalable)
 
 ---
 
-## API Documentation
-
-- The full API is documented using Swagger.
-- Visit: 👉 [https://restaurant-api-27es.onrender.com/api-docs](https://restaurant-api-27es.onrender.com/api-docs)
-
+## 📁 Project Structure
+/graphSchema # GraphQL typeDefs and resolvers /services # Business logic (service layer) /repository # Data access (Prisma repositories) /validation # Zod schemas for input validation /mapper # Data mappers (DB model <-> API type) /utils # Utilities (auth, errors, config, etc.) /prisma # Prisma schema and migrations
 ---
 
-## Getting Started Locally
+## ⚡ Getting Started
 
-```bash
-# 1. Clone the repo
-git clone https://github.com/Kingestif/Restaurant-API.git
-cd restaurant-api
-
-# 2. Install dependencies
-npm install
-
-# 3. Create .env file
-cp .env
-# Add your MongoDB URI, JWT secret, and other configs in the .env
-
-# 4. Start the development server
-npm run dev,
-```
+1. **Clone the repo**
+2. **Install dependencies**
+   ```bash
+   npm install
+3. **Configure environment**
+    Copy .env.example to .env and set your variables (DB connection, JWT secret, etc.)
+4. **Run database migrations**
+    ```bash 
+    npx prisma migrate dev
+5. **Start the server**
+    npm run dev
+6. **Access GraphQL Playground**
+    Visit http://localhost:4000/ in your browser
 
 
-## Author
-- Built by Estifanos Zinabu
+🧩 Key Concepts
+GraphQL-first: Only fetch the data you need, with strong typing and introspection.
+Clean Architecture: Each layer (resolver, service, repository) has a single responsibility.
+Validation: All inputs are validated with Zod before reaching business logic.
+Role-based Access: Secure endpoints by user role (admin, manager, customer).
+Error Handling: Custom AppError class for consistent error responses.
+
+📚 Documentation
+The GraphQL schema is self-documenting. Use Apollo Studio, GraphiQL, or Playground to explore available queries, mutations, and types.
+Code is organized for clarity and extensibility—see comments and folder structure for guidance.
+
+🤝 Contributing
+Contributions are welcome! Please open issues or submit pull requests for improvements or bug fixes.
+
+📝 License
+MIT License
+
