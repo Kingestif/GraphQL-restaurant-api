@@ -59,7 +59,7 @@ export const getAllOrders = async(req:Request, res:Response, next: NextFunction)
         const orderService = new OrderService(orderRepository);
 
         const orders = await orderService.getAllOrders();
-
+getAllOrders
         res.status(200).json({
             length: orders.length,
             status: "success",
