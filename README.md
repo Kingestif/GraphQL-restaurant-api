@@ -4,7 +4,7 @@ A modern, scalable Restaurant API built with **TypeScript**, **GraphQL**, and **
 
 ---
 
-## 🚀 Features
+## Features
 
 - **GraphQL API** for all operations (bookings, menus, orders, users, etc.)
 - **TypeScript** for type safety and maintainability
@@ -18,7 +18,7 @@ A modern, scalable Restaurant API built with **TypeScript**, **GraphQL**, and **
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Language:** TypeScript
 - **API:** GraphQL (Apollo Server)
@@ -29,11 +29,7 @@ A modern, scalable Restaurant API built with **TypeScript**, **GraphQL**, and **
 
 ---
 
-## 📁 Project Structure
-/graphSchema # GraphQL typeDefs and resolvers /services # Business logic (service layer) /repository # Data access (Prisma repositories) /validation # Zod schemas for input validation /mapper # Data mappers (DB model <-> API type) /utils # Utilities (auth, errors, config, etc.) /prisma # Prisma schema and migrations
----
-
-## ⚡ Getting Started
+## Getting Started
 
 1. **Clone the repo**
 2. **Install dependencies**
@@ -50,20 +46,20 @@ A modern, scalable Restaurant API built with **TypeScript**, **GraphQL**, and **
     Visit http://localhost:4000/ in your browser
 
 
-🧩 Key Concepts
+## Key Concepts
 GraphQL-first: Only fetch the data you need, with strong typing and introspection.
 Clean Architecture: Each layer (resolver, service, repository) has a single responsibility.
 Validation: All inputs are validated with Zod before reaching business logic.
 Role-based Access: Secure endpoints by user role (admin, manager, customer).
 Error Handling: Custom AppError class for consistent error responses.
 
-📚 Documentation
+## Documentation
 The GraphQL schema is self-documenting. Use Apollo Studio, GraphiQL, or Playground to explore available queries, mutations, and types.
 Code is organized for clarity and extensibility—see comments and folder structure for guidance.
 
-🤝 Contributing
+## Contributing
 Contributions are welcome! Please open issues or submit pull requests for improvements or bug fixes.
 
-📝 License
+## License
 MIT License
 
