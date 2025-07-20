@@ -34,6 +34,7 @@ describe('orderService', ()=> {
 
     let fullOrderdData: {
         id: string,
+        customerId: string,
         customer: {
             id: string,
             email: string
@@ -99,6 +100,7 @@ describe('orderService', ()=> {
 
         fullOrderdData = {
             id: "686628e8087d272ee7dd529e",
+            customerId: "321",
             customer: {
                 id: "6865237026d94682ee83ccb6",
                 email: "customer@gmail.com"
