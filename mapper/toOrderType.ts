@@ -32,6 +32,7 @@ export const toPopulatedOrder = (doc: any): PopulatedOrder=> {
 export const toFullPopulatedOrder = (doc: any): FullPopulatedOrder=> {
     return {
         id: (doc._id ?? doc.id).toString(),
+        customerId: doc.customerId,
         customer: {              //since customer is objectId we need to ensure it's populated first and become object before we access .email
             id: (doc.customer._id ?? doc.customer.id).toString(),
             email: typeof doc.customer === 'object' && doc.customer !== null? (doc.customer as any).email : ''

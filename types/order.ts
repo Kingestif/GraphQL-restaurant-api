@@ -28,6 +28,7 @@ export type PopulatedOrder = {
 
 export type FullPopulatedOrder = {
     id: string,
+    customerId: string,
     customer: {
         id: string,
         email: string
