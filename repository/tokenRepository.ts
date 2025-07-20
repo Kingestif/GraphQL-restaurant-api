@@ -17,13 +17,4 @@ export class JwtTokenRepository implements TokenRepository {
   generateToken(payload: object): string {
     return jwt.sign(payload, this.secret, { expiresIn: this.expiresIn });
   }
-
-  // async verifyToken(token: string, secret: string): Promise<jwt.JwtPayload>  {
-  //   const decoded = jwt.verify(token, secret);
-  //   if(typeof decoded === 'string'){
-  //     throw new Error("Invalid token");
-  //   }
-
-  //   return decoded;
-  // }
 }
