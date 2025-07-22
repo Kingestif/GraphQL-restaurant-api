@@ -4,8 +4,6 @@ import { Usertype } from "../types/user";
 import { AppError } from '../utils/AppError';
 import { toUser } from '../mapper/toUserType';
 
-// This interface describes what our repository must do, but not how. 
-// My business logic (service/use case) will depend on this interface.
 export interface IAuthRepository {
     findByEmail(email: string): Promise<Usertype | null>;
     save(user: Usertype): Promise<Usertype>;

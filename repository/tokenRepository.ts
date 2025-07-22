@@ -2,7 +2,6 @@ import jwt from 'jsonwebtoken';
 
 export interface TokenRepository {
   generateToken: (payload: object) => string;
-  // verifyToken: (token: string, secret: string) => Promise<jwt.JwtPayload>;
 }
 
 export class JwtTokenRepository implements TokenRepository {

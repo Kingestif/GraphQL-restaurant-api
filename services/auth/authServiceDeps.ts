@@ -7,5 +7,3 @@ export interface AuthServiceDeps {
   hashRepository: HashRepository;
   tokenRepository: TokenRepository;
 }
-
-// this file just help define the structure of dependencies that the AuthenticationService will need.

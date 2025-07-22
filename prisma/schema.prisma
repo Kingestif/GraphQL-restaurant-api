@@ -86,6 +86,3 @@ enum Category {
   Dessert
   Drink
 }
-
-// In Prisma, a relation means a connection between two models using foreign keys.
-// But only one side actually stores the relation in the database — the other side is just for reading (reverse lookup)

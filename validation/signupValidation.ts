@@ -8,6 +8,6 @@ const signupValidation = z.object({
   })
 }); 
 
-export type signUpValidationType = z.infer<typeof signupValidation>;  //we can then use this as a type
+export type signUpValidationType = z.infer<typeof signupValidation>;  
 
 export default signupValidation;
